@@ -96,6 +96,28 @@
             <button type="submit" name="actionare" value="aprov">Aprovioneaza</button>
         </form>
     </div><br>
+
+    <div class="container">
+        <table>
+            <tr>
+                <th colspan="2">Nr. aprovizionari / furnizor [30 zile]</th>
+            </tr>
+            <?php
+                $data_start = date('Y-m-d', strtotime("-30 days"));
+                $data_end = date('Y-m-d');
+
+                $select = mysqli_query($conectare, "SELECT CUI, COUNT(nrFact) as maxfact FROM factura WHERE '$data_start' <= dataEmitere AND dataEmitere <= '$data_end' GROUP BY CUI ORDER BY maxfact DESC LIMIT 10");
+
+                while($row=mysqli_fetch_array($select)) {
+                    $prd = mysqli_fetch_array(mysqli_query($conectare, "SELECT denumireF FROM furnizor WHERE CUI='".$row["CUI"]."'"));
+                    echo "<tr>
+                        <td>".$prd["denumireF"]."</td>
+                        <td>".$row["maxfact"]."</td>
+                    </tr>";
+                }
+            ?>
+        </table>
+    </div>
     
     <form action="aprovizionare.php" method="POST">
         <button type="submit" name="back" value="back">back</button>
