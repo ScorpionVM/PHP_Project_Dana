@@ -1,0 +1,80 @@
+h1 {
+    text-align: center;
+    color: burlywood;
+    font-family: monospace;
+    font-size: 4em;
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50em;
+    margin: -10px;
+}
+
+.side-align {
+    line-height: 100%;
+    vertical-align: middle;
+    /*border: solid 1px green;*/
+}
+
+.side-nav-bar {
+    margin-top: 15em;
+    background-color: burlywood;
+    color: teal;
+    width: max-content;
+    text-align: center;
+    padding: 15px;
+    border: solid 2px brown;
+    border-radius: 0 15px 15px 0;
+}
+
+.nav-header {
+    font-size: 1.7em;
+    padding: 3px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+.in-screen {
+    width: 80%;
+    /* border: solid 1px blue; */
+}
+
+.btn-nav {
+    margin-top: 4px;
+    margin-bottom: 4px; 
+    padding: 4px;
+    background-color: transparent;
+    border: solid 2px transparent; 
+    border-bottom-color: brown;
+    color: brown;
+    width: 98%;
+}
+
+.btn-nav:hover {
+    border-bottom-color: white;
+}
+
+.btn-enter {
+    display: block;
+    background-color: burlywood;
+    border: solid 2px brown;
+    border-radius: 15px;
+    font-size: 2em;
+    color: brown;
+    width: max-content;
+    padding: 5px;
+    margin: auto; 
+    margin-top: 20%;
+    text-decoration: none;
+}
+
+.btn-enter:hover {
+    border-bottom-color: white;
+}
+
+body {
+    background-image: url("../1920_choco.jpg");
+}
