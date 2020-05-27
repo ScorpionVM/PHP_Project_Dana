@@ -10,6 +10,8 @@
             header("Location: /consum.php");
         } else if($_POST["goto"] == "furnz"){
             header("Location: /furnizori.php");
+        } else if ($_POST["goto"] == "depozit") {
+            header("Location: /depozit.php");
         }
     }
 
@@ -18,7 +20,8 @@
             <div class='nav-header'>Menu</div>
             <form action='/' method='POST'>
                 <button class='btn-nav' type='submit' name='goto' value='aprov'>Aprovizionare</button><br>
-                <button class='btn-nav' type='submit' name='goto' value='consum'>Consum</button><br>
+                <button class='btn-nav' type='submit' name='goto' value='categ'>Categorii</button><br>
+                <button class='btn-nav' type='submit' name='goto' value='depozit'>Depozit</button><br>
                 <button class='btn-nav' type='submit' name='goto' value='categ'>Categorii</button><br>
                 <button class='btn-nav' type='submit' name='goto' value='prods'>Produse</button><br>
                 <button class='btn-nav' type='submit' name='goto' value='furnz'>Furnizori</button>
