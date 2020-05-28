@@ -6,6 +6,9 @@
         $_SESSION["cat_sel_mod"] = "";
     }
 
+    if(isset($_POST["back"]) && ($_POST["back"] == "back")){
+        header("Location: index.php");
+    }
 
     if(isset($_GET["actionare"]) && $_GET["actionare"] == "show"){
         if(isset($_SESSION["cat_sel_mod"])){
@@ -61,6 +64,10 @@
                 echo "<p>Categoria data nu contine produse cu cantitatea mai mica de 20 Kg</p>";
             }
         ?>
-    </div>
+    </div><br><br>
+
+    <form action="depozit.php" method="POST">
+        <button type="submit" name="back" value="back">back</button>
+    </form>
 </body>
 </html>
