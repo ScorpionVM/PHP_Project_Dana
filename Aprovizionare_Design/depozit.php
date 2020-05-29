@@ -37,43 +37,47 @@
     
         <div class="in-screen">
             <h1> Depozit</h1>
-            <p>Afisare produse in catitate de risc < 20 kg</p>
-            <form action="depozit.php" method="GET">
-                <label>Per categorie</label>
-                <select name="cat_sel">
+            <div class="in-row">
+                <div class="container">
+                    <p>Afisare produse in catitate de risc < 20 kg</p>
+                    <form action="depozit.php" method="GET">
+                        <label>Per categorie</label>
+                        <select name="cat_sel">
+                            <?php
+                                $fill = mysqli_query($conectare, "SELECT codC, denumire FROM categorie");
+                                while($row=mysqli_fetch_array($fill)) {
+                                    if(isset($_SESSION["cat_sel_mod"]) && $_SESSION["cat_sel_mod"] == $row["codC"]) {
+                                        $stat = "selected";
+                                    } else {
+                                        $stat = "";
+                                    }
+                                    echo "<option value='".$row["codC"]."' $stat>".$row["denumire"]."</option>";
+                                }
+                            ?>
+                        </select>
+                        <button type="submit" name="actionare" value="show">Show</button>
+                    </form><br>
+                </div>
+                <div class="container">        
                     <?php
-                        $fill = mysqli_query($conectare, "SELECT codC, denumire FROM categorie");
-                        while($row=mysqli_fetch_array($fill)) {
-                            if(isset($_SESSION["cat_sel_mod"]) && $_SESSION["cat_sel_mod"] == $row["codC"]) {
-                                $stat = "selected";
-                            } else {
-                                $stat = "";
+                        $select = mysqli_query($conectare, "SELECT denumireProdus, stoc FROM produs WHERE stoc <= 20 AND codC=".$_SESSION["cat_sel_mod"]);
+                        if( mysqli_num_rows($select) > 0) {
+                            echo "<table>
+                            <tr>
+                                <th colspan='2'>Lista produse</th>
+                            </tr>";
+                            while($row=mysqli_fetch_array($select)) {
+                                echo "<tr>
+                                    <td>".$row["denumireProdus"]."</td>
+                                    <td>".$row["stoc"]."</td>
+                                </tr>";
                             }
-                            echo "<option value='".$row["codC"]."' $stat>".$row["denumire"]."</option>";
+                            echo "</table>";
+                        } else {
+                            echo "<p>Categoria data nu contine produse cu cantitatea mai mica de 20 Kg</p>";
                         }
                     ?>
-                </select>
-                <button type="submit" name="actionare" value="show">Show</button>
-            </form><br>
-            <div>        
-                <?php
-                    $select = mysqli_query($conectare, "SELECT denumireProdus, stoc FROM produs WHERE stoc <= 20 AND codC=".$_SESSION["cat_sel_mod"]);
-                    if( mysqli_num_rows($select) > 0) {
-                        echo "<table>
-                        <tr>
-                            <th colspan='2'>Lista produse</th>
-                        </tr>";
-                        while($row=mysqli_fetch_array($select)) {
-                            echo "<tr>
-                                <td>".$row["denumireProdus"]."</td>
-                                <td>".$row["stoc"]."</td>
-                            </tr>";
-                        }
-                        echo "</table>";
-                    } else {
-                        echo "<p>Categoria data nu contine produse cu cantitatea mai mica de 20 Kg</p>";
-                    }
-                ?>
+                </div>
             </div>
         </div>
     </div>
