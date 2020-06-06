@@ -34,10 +34,7 @@
 
         mysqli_query($conectare, "UPDATE furnizor SET denumireF='$denF', email='$email', telefon='$telefon' WHERE CUI='$cui'") or die("Error: Furnizor");
         mysqli_query($conectare, "UPDATE adresa SET denumireJudet='$new_judet', denumireLocalitate='$new_localitate', denumireStrada='$new_strd', numar='$new_nr', codPostal=$new_codPostal WHERE cui='$cui'") or die("Error: Furnizor");
-        
-        echo "<p>Date modificate cu succes!</p>";
-        # echo "<p>Valorile noi pentru furnizorul '$old_den' sunt:<br><br>Denumire: '$old_den' -> '$denF'<br>Telefon: '$old_telefon' -> '$telefon'<br>E-mail: '$old_email' -> '$email'<br></p>";
-    }
+        echo "<p>Date modificate cu succes!</p>";    }
 ?>
 <body>
     <br>

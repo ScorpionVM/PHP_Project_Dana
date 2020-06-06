@@ -12,9 +12,7 @@
         $new_name = ifnull($_POST["denN"], $old_name);
         $new_desc = ifnull($_POST["desc"], $old_desc);
         
-        mysqli_query($conectare, "UPDATE categorie SET denumire='$new_name', descriere='$new_desc' WHERE codC='".$_POST["cat_sel"]."'")or die("Error: Categorie");    
-        #echo "<p>Valorile noi pentru categoria '$old_name' sunt:<br>Denumire: '$old_name' -> '$new_name'<br>Descriere: '$old_desc' -> '$new_desc'</p>";
-        
+        mysqli_query($conectare, "UPDATE categorie SET denumire='$new_name', descriere='$new_desc' WHERE codC='".$_POST["cat_sel"]."'")or die("Error: Categorie");            
         echo "<p>Date modificate cu succes!</p>";
     }
 
