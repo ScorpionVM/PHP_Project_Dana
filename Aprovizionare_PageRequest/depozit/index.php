@@ -23,9 +23,10 @@
             ?>
         </select>
         <button type="submit" name="actionare" value="verif">Verifica</button>
-    </form><br>
+    </form>
     
-
+    
+    <br>
 	<a href="../index.php">Back</a>
 </body>
 </html>

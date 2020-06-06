@@ -3,11 +3,9 @@
     include("../global_func.php");
     
     if(isset($_POST["actionare"]) && $_POST["actionare"] == "modifica"){            
-        $select = mysqli_query($conectare, "SELECT denumire, descriere FROM categorie WHERE codC=".$_POST["cat_sel"]);
-        while($row=mysqli_fetch_array($select)){
-            $old_name = $row["denumire"];
-            $old_desc = $row["descriere"];
-        }
+        $row = mysqli_fetch_array(mysqli_query($conectare, "SELECT denumire, descriere FROM categorie WHERE codC=".$_POST["cat_sel"]));
+        $old_name = $row["denumire"];
+        $old_desc = $row["descriere"];
 
         $new_name = ifnull($_POST["denN"], $old_name);
         $new_desc = ifnull($_POST["desc"], $old_desc);
@@ -19,5 +17,6 @@
 ?>
 
 <body>
+    <br>
     <a href="./index.php">Back</a>
 </body>

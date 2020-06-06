@@ -75,9 +75,10 @@
             ?>
         </select>
         <button type="submit" name="actionare" value="sterge">Sterge</button>
-    </form><br>
-
-
+    </form>
+    
+    
+    <br>
 	<a href="../index.php">Back</a>
 </body>
 </html>

@@ -3,12 +3,9 @@
     include("../global_func.php");
     
     if(isset($_GET["actionare"]) && ($_GET["actionare"] == "modifica")){
-        $select = mysqli_query($conectare, "SELECT denumireProdus, descriere FROM produs WHERE codProdus=".$_GET["prd_sel"]);
-
-        while($row=mysqli_fetch_array($select)){
-            $old_den = $row["denumireProdus"];
-            $old_desc = $row["descriere"];
-        }
+        $row = mysqli_fetch_array(mysqli_query($conectare, "SELECT denumireProdus, descriere FROM produs WHERE codProdus=".$_GET["prd_sel"]));
+        $old_den = $row["denumireProdus"];
+        $old_desc = $row["descriere"];
 
         $new_den = ifnull($_GET["denN"], $old_den);
         $new_desc = ifnull($_GET["desc"], $old_desc);
