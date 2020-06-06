@@ -13,8 +13,10 @@
         $new_den = ifnull($_GET["denN"], $old_den);
         $new_desc = ifnull($_GET["desc"], $old_desc);
 
-        mysqli_query($conectare, "UPDATE produs SET denumireProdus='$new_den', descriere='$new_desc' WHERE codProdus=".$_GET["prd_sel"]);
-        echo "<p>Valorile noi pentru produsul '$old_den' sunt:<br>Denumire: '$old_den' -> '$new_den'<br>Descriere: '$old_desc' -> '$new_desc'</p>";
+        mysqli_query($conectare, "UPDATE produs SET denumireProdus='$new_den', descriere='$new_desc' WHERE codProdus=".$_GET["prd_sel"]) or die("Error: Produs");
+        echo "<p>Date modificate cu succes!</p>";
+        
+        #echo "<p>Valorile noi pentru produsul '$old_den' sunt:<br>Denumire: '$old_den' -> '$new_den'<br>Descriere: '$old_desc' -> '$new_desc'</p>";
     }
 ?>
 

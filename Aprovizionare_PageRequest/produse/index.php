@@ -25,8 +25,8 @@
                     echo "<option value='".$row["codC"]."'>".$row["denumire"]."</option>";
                 }
             ?>
-        </select>
-
+        </select><br>
+        <label>Termen valabilitate : </label><input type="text" name="term" required/><label> zile</label>
         <button type="submit" name="actionare" value="adauga">Adauga</button>
     </form>
 

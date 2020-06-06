@@ -1,20 +1,4 @@
 {
-    "sqltools.connections": [
-        {
-            "askForPassword": false,
-            "connectionTimeout": 3600,
-            "database": "aprovizionare",
-            "driver": "MySQL",
-            "mysqlOptions": {
-                "authProtocol": "default"
-            },
-            "name": "aprov",
-            "password": "tx4536plk78sd",
-            "port": 3306,
-            "previewLimit": 50,
-            "server": "localhost",
-            "username": "scorpion"
-        }
-    ],
+    "sqltools.connections": [],
     "sqltools.useNodeRuntime": true
 }

@@ -6,7 +6,12 @@
         $denP = $_POST["den"];
         $desc = $_POST["desc"];
         $codC = $_POST["cat_sel"];
-        mysqli_query($conectare, "INSERT INTO produs (codProdus, denumireProdus, UM, descriere, codC, stoc) VALUES ($max, '$denP', 'kg', '$desc', $codC, 0.0)");
+        $zile = $_POST["term"];
+        
+        $dataFabr = date("Y-m-d");
+        $dataExp = date("Y-m-d", strtotime("+$zile days"));
+
+        mysqli_query($conectare, "INSERT INTO produs (codProdus, denumireProdus, UM, dataFabr, dataExp,  descriere, codC, stoc) VALUES ($max, '$denP', 'kg', '$dataFabr', '$dataExp',  '$desc', $codC, 0.0)") or die("Error can't insert");
         
         echo "<p>Produsul nou a fost adaugat cu succes!</p>";
     }
